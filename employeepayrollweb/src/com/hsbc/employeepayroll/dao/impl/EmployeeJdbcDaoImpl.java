@@ -155,7 +155,7 @@ public class EmployeeJdbcDaoImpl implements EmployeeDao{
 		PreparedStatement stmt = null;
 		ResultSet resultSet = null;
 		
-		Employee e = new Manager();
+		Employee e = null;
 		
 		try
 		{
@@ -164,7 +164,7 @@ public class EmployeeJdbcDaoImpl implements EmployeeDao{
 			resultSet = stmt.executeQuery();
 
 			if(resultSet.next())
-			{
+			{	e = new Manager();//else it will create a manager with all values 0 and null and return that
 				//Fetching value for id column from DB and putting it in employee Object
 				e.setId(resultSet.getInt(1));		
 
